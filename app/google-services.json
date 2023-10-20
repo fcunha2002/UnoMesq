@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "149828584234",
+    "firebase_url": "https://uno-mesquita-default-rtdb.firebaseio.com",
+    "project_id": "uno-mesquita",
+    "storage_bucket": "uno-mesquita.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149828584234:android:20374d4bbdca6c1bfe5453",
+        "android_client_info": {
+          "package_name": "com.example.unomesq"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1qCE70Y6ytS2SKoZyqFKiQsV3TzRaFqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

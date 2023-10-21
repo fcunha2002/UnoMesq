@@ -42,6 +42,22 @@ public class Baralho {
         cartas.add(carta);
         carta = new Carta(Color.RED, 4, 4, R.drawable.r4);
         cartas.add(carta);
+        carta = new Carta(Color.RED, 5, 5, R.drawable.r5);
+        cartas.add(carta);
+        carta = new Carta(Color.RED, 5, 5, R.drawable.r5);
+        cartas.add(carta);
+        carta = new Carta(Color.RED, 6, 6, R.drawable.r6);
+        cartas.add(carta);
+        carta = new Carta(Color.RED, 6, 6, R.drawable.r6);
+        cartas.add(carta);
+        carta = new Carta(Color.RED, 7, 7, R.drawable.r7);
+        cartas.add(carta);
+        carta = new Carta(Color.RED, 7, 7, R.drawable.r7);
+        cartas.add(carta);
+        carta = new Carta(Color.RED, 8, 8, R.drawable.r8);
+        cartas.add(carta);
+        carta = new Carta(Color.RED, 8, 8, R.drawable.r8);
+        cartas.add(carta);
 
         //Amarelo
         carta = new Carta(Color.YELLOW, 0, 0, R.drawable.y0);
@@ -61,6 +77,22 @@ public class Baralho {
         carta = new Carta(Color.YELLOW, 4, 4, R.drawable.y4);
         cartas.add(carta);
         carta = new Carta(Color.YELLOW, 4, 4, R.drawable.y4);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 5, 5, R.drawable.y5);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 5, 5, R.drawable.y5);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 6, 6, R.drawable.y6);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 6, 6, R.drawable.y6);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 7, 7, R.drawable.y7);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 7, 7, R.drawable.y7);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 8, 8, R.drawable.y8);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 8, 8, R.drawable.y8);
         cartas.add(carta);
 
         //Verde

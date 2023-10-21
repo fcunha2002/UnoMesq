@@ -55,4 +55,13 @@ public class Mesa {
             baralho.getCartas().remove(idx);
         }
     }
+
+    public void comprarCarta(Jogador j){
+        Random r = new Random();
+        int idx;
+
+        idx = r.nextInt(baralho.getCartas().size());
+        j.getHand().add(baralho.getCartas().get(idx));
+        baralho.getCartas().remove(idx);
+    }
 }

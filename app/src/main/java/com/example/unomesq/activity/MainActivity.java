@@ -81,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
         view.animate().z(100);
     }
 
+    public void comprar(View view) {
+        mesa.comprarCarta(mesa.getJogadores().get(posi));
+        mesa.salvar();
+    }
+
     public void jogar(View view) {
         Carta c = mesa.getJogadores().get(posi).getHand().get(Integer.parseInt(view.getTag().toString()));
         mesa.getJogadores().get(posi).getHand().remove(Integer.parseInt(view.getTag().toString()));

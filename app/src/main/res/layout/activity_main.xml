@@ -8,78 +8,92 @@
 
     <ImageView
         android:id="@+id/ivCarta1"
-        android:layout_width="101dp"
+        android:layout_width="86dp"
         android:layout_height="130dp"
-        android:layout_marginStart="24dp"
         android:layout_marginBottom="16dp"
         android:onClick="jogar"
         android:tag="0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivCarta2"
         app:srcCompat="@drawable/t0" />
 
     <ImageView
         android:id="@+id/ivCarta2"
-        android:layout_width="101dp"
+        android:layout_width="86dp"
         android:layout_height="130dp"
         android:onClick="jogar"
         android:tag="1"
         app:layout_constraintBottom_toBottomOf="@+id/ivCarta1"
         app:layout_constraintEnd_toStartOf="@+id/ivCarta3"
-        app:layout_constraintStart_toEndOf="@+id/ivCarta1"
         app:srcCompat="@drawable/t0" />
 
     <ImageView
         android:id="@+id/ivCarta3"
-        android:layout_width="101dp"
+        android:layout_width="86dp"
         android:layout_height="130dp"
         android:onClick="jogar"
         android:tag="2"
         app:layout_constraintBottom_toBottomOf="@+id/ivCarta1"
-        app:layout_constraintEnd_toEndOf="@+id/ivCartaDescarte"
-        app:layout_constraintStart_toStartOf="@+id/ivCartaDescarte"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:srcCompat="@drawable/t0" />
 
     <ImageView
         android:id="@+id/ivCartaDescarte"
         android:layout_width="101dp"
         android:layout_height="130dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:onClick="animar"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/t0" />
+        app:srcCompat="@drawable/verso" />
 
     <ImageView
         android:id="@+id/ivCarta4"
-        android:layout_width="101dp"
+        android:layout_width="86dp"
         android:layout_height="130dp"
         android:onClick="jogar"
         android:tag="3"
         app:layout_constraintBottom_toBottomOf="@+id/ivCarta1"
-        app:layout_constraintEnd_toStartOf="@+id/ivCarta5"
         app:layout_constraintStart_toEndOf="@+id/ivCarta3"
         app:srcCompat="@drawable/t0" />
 
     <ImageView
         android:id="@+id/ivCarta5"
-        android:layout_width="101dp"
+        android:layout_width="86dp"
         android:layout_height="130dp"
-        android:layout_marginEnd="24dp"
         android:onClick="jogar"
         android:tag="4"
         app:layout_constraintBottom_toBottomOf="@+id/ivCarta1"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivCarta4"
         app:srcCompat="@drawable/t0" />
 
     <TextView
         android:id="@+id/tvNomeJogador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivBaralho"
+        app:layout_constraintStart_toEndOf="@+id/ivCartaDescarte"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivBaralho"
+        android:layout_width="101dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="comprar"
+        android:src="@drawable/verso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,8 +10,37 @@ public class Mesa {
     private ArrayList<Jogador> jogadores = new ArrayList<>();
     private Baralho baralho = new Baralho();
     private int minhaVez = 0;
+    private boolean Sentido = true;
+    private Carta descarte;
+
+    public Carta getDescarte() {
+        return descarte;
+    }
+
+    public void setDescarte(Carta descarte) {
+        this.descarte = descarte;
+    }
+
+    public boolean getSentido() {
+        return Sentido;
+    }
+
+    public void setSentido(boolean sentido) {
+
+        Sentido = Sentido;
+    }
+
+    public Mesa(boolean sentido) {
+        Sentido = sentido;
+    }
 
     public Mesa() {
+    }
+
+    public void validarjogada(){
+
+
+
     }
 
     public void salvar(){

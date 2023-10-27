@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.unomesq.R;
 
-public class InterfaceTeste extends AppCompatActivity {
+public class MesaJogoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

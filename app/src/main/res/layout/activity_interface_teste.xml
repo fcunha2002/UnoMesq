@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#6DAF20"
     android:foregroundTint="#FFFFFF"
-    tools:context=".InterfaceTeste">
+    tools:context=".activity.MesaJogoActivity">
 
     <ImageView
         android:id="@+id/imageView"

@@ -14,7 +14,7 @@
         android:theme="@style/Theme.UnoMesq"
         tools:targetApi="31">
         <activity
-            android:name=".InterfaceTeste"
+            android:name=".activity.MesaJogoActivity"
             android:exported="true" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />

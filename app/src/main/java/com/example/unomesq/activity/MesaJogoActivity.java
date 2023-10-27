@@ -11,6 +11,6 @@ public class MesaJogoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interface_teste);
+        setContentView(R.layout.activity_mesa_jogo);
     }
 }

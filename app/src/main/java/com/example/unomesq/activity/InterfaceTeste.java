@@ -1,8 +1,10 @@
-package com.example.unomesq;
+package com.example.unomesq.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.unomesq.R;
 
 public class InterfaceTeste extends AppCompatActivity {
 

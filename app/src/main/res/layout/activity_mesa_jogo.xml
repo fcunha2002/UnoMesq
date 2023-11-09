@@ -8,16 +8,22 @@
     android:foregroundTint="#FFFFFF"
     tools:context=".activity.MesaJogoActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cartas_mao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="200dp"
         android:layout_marginBottom="-50dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:scrollbars="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/t0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"

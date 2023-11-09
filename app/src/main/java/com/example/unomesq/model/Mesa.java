@@ -13,6 +13,8 @@ public class Mesa {
     private boolean Sentido = true;
     private Carta descarte;
 
+    private final int QTD_CARTAS_INICIAL = 7;
+
     public Carta getDescarte() {
         return descarte;
     }
@@ -78,7 +80,7 @@ public class Mesa {
         Random r = new Random();
         int idx;
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < QTD_CARTAS_INICIAL; i++) {
             idx = r.nextInt(baralho.getCartas().size());
             j.getHand().add(baralho.getCartas().get(idx));
             baralho.getCartas().remove(idx);

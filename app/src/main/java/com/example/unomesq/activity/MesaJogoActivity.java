@@ -10,12 +10,16 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.unomesq.R;
+import com.example.unomesq.model.Carta;
 import com.example.unomesq.model.Jogador;
 import com.example.unomesq.model.Mesa;
+import com.example.unomesq.util.RecyclerItemClickListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,9 +31,10 @@ public class MesaJogoActivity extends AppCompatActivity {
 
     private RecyclerView rvCartasMao;
     private TextView tvNome;
+    private ImageView ivDescarte;
 
     private Mesa mesa;
-    private int posi = 0;//voltar aqui para arrumar a gambiarra
+    private int posi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +42,67 @@ public class MesaJogoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mesa_jogo);
 
         rvCartasMao = findViewById(R.id.rv_cartas_mao);
+        //Adicionando tratamento de clique
+        rvCartasMao.addOnItemTouchListener(new RecyclerItemClickListener(
+                getApplicationContext(),
+                rvCartasMao,
+                new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Carta carta =
+                                mesa.getJogadores().get(posi).getHand().get(position);
+                        mesa.getJogadores().get(posi).getHand().remove(position);
+                        carta.salvar("descarte", "carta");
+
+                        if (mesa.getMinhaVez() < mesa.getJogadores().size() - 1) {
+                            mesa.setMinhaVez(mesa.getMinhaVez() + 1);
+                        } else {
+                            mesa.setMinhaVez(0);
+                        }
+                        mesa.salvar();
+
+                        Toast.makeText(getApplicationContext(), "CLICK:", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "LONG CLICK",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    }
+                }
+        ));
 
         buscaMesa();
 
         identificaPlayer();
+
+        ivDescarte = findViewById(R.id.iv_carta_descarte);
+
+        referenciaFirebase.child("descarte").child("carta").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Carta descarte = snapshot.getValue(Carta.class);
+                if (descarte != null) {
+                    ivDescarte.setImageDrawable
+                            (AppCompatResources.getDrawable
+                                    (getApplicationContext(), descarte.getImagem()));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     private void buscaMesa(){

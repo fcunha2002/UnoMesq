@@ -95,4 +95,55 @@ public class Mesa {
         j.getHand().add(baralho.getCartas().get(idx));
         baralho.getCartas().remove(idx);
     }
+
+    public int jogFrente(int posi){
+        switch (this.getJogadores().size()) {
+            case 2: {
+                if (posi == 0) return 1;
+                else return 0;
+            }
+            case 3: {
+                if (posi == 0) return 2;
+                else if (posi == 1) return 0;
+                else return 1;
+            }
+            case 4:{
+                if (posi == 0) return 2;
+                else if (posi == 1) return 3;
+                else if (posi == 2) return 0;
+                else return 1;
+            }
+        }
+        return -1;
+    }
+
+    public int jogEsquerda(int posi){
+        switch (this.getJogadores().size()) {
+            case 3: {
+                if (posi == 0) return 1;
+                else if (posi == 1) return 2;
+                else return 0;
+            }
+            case 4:{
+                if (posi == 0) return 1;
+                else if (posi == 1) return 2;
+                else if (posi == 2) return 3;
+                else return 0;
+            }
+        }
+        return -1;
+    }
+
+    public int jogDireita(int posi){
+        switch (this.getJogadores().size()) {
+            case 4:{
+                if (posi == 0) return 3;
+                else if (posi == 1) return 0;
+                else if (posi == 2) return 1;
+                else return 2;
+            }
+        }
+        return -1;
+    }
+
 }

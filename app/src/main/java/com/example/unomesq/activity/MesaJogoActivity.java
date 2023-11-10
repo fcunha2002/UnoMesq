@@ -38,7 +38,7 @@ public class MesaJogoActivity extends AppCompatActivity {
 
     private Mesa mesa;
     private int posi;
-    private int posiA, posiB, posiC;
+    private int posiFrente, posiEsquerda, posiDireita;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,8 @@ public class MesaJogoActivity extends AppCompatActivity {
 
     private void inicializaRVMao(){
         rvCartasMao = findViewById(R.id.rv_cartas_mao);
-        //Adicionando tratamento de clique
+        //Adicionando tratamento de clique. A carta clicada é a carta a ser descartada
+        //TODO Falta validar a jogada
         rvCartasMao.addOnItemTouchListener(new RecyclerItemClickListener(
                 getApplicationContext(),
                 rvCartasMao,
@@ -66,6 +67,9 @@ public class MesaJogoActivity extends AppCompatActivity {
                     public void onItemClick(View view, int position) {
                         Carta carta =
                                 mesa.getJogadores().get(posi).getHand().get(position);
+
+                        //Aqui falta validar a jogada
+
                         mesa.getJogadores().get(posi).getHand().remove(position);
                         carta.salvar("descarte", "carta");
 
@@ -153,13 +157,13 @@ public class MesaJogoActivity extends AppCompatActivity {
         tvNomePlayer3 = findViewById(R.id.tv_nome_player3);
 
         if(mesa.getJogadores().size()>1) {
-            tvNomePlayer1.setText(mesa.getJogadores().get(posiA).getNome());
+            tvNomePlayer1.setText(mesa.getJogadores().get(posiFrente).getNome());
         }
         if(mesa.getJogadores().size()>2) {
-            tvNomePlayer2.setText(mesa.getJogadores().get(posiB).getNome());
+            tvNomePlayer2.setText(mesa.getJogadores().get(posiEsquerda).getNome());
         }
         if(mesa.getJogadores().size()>3) {
-            tvNomePlayer3.setText(mesa.getJogadores().get(posiC).getNome());
+            tvNomePlayer3.setText(mesa.getJogadores().get(posiDireita).getNome());
         }
 
     }
@@ -191,15 +195,9 @@ public class MesaJogoActivity extends AppCompatActivity {
     }
 
     private void inicializaPosicoes(){
-        switch (posi) {
-            case 0: {posiA = 1; posiB = 2; posiC = 3; break;}
-            case 1: {posiA = 0; posiB = 3; posiC = 2; break;}
-            case 2: {posiA = 3; posiB = 0; posiC = 1; break;}
-            case 3: {posiA = 0; posiB = 1; posiC = 2; break;}
-
-        }
-
-
+        posiFrente = mesa.jogFrente(posi);
+        posiEsquerda = mesa.jogEsquerda(posi);
+        posiDireita = mesa.jogDireita(posi);
     }
 
 }

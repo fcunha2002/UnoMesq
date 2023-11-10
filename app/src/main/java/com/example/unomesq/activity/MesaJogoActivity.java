@@ -31,10 +31,14 @@ public class MesaJogoActivity extends AppCompatActivity {
 
     private RecyclerView rvCartasMao;
     private TextView tvNome;
+    private TextView tvNomePlayer1;
+    private TextView tvNomePlayer2;
+    private TextView tvNomePlayer3;
     private ImageView ivDescarte;
 
     private Mesa mesa;
     private int posi;
+    private int posiA, posiB, posiC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +146,22 @@ public class MesaJogoActivity extends AppCompatActivity {
         rvCartasMao.setAdapter(new MaoAdapter(getApplicationContext()
                 , mesa.getJogadores().get(posi).getHand()));
 
+        inicializaPosicoes();
+
+        tvNomePlayer1 = findViewById(R.id.tv_nome_player1);
+        tvNomePlayer2 = findViewById(R.id.tv_nome_player2);
+        tvNomePlayer3 = findViewById(R.id.tv_nome_player3);
+
+        if(mesa.getJogadores().size()>1) {
+            tvNomePlayer1.setText(mesa.getJogadores().get(posiA).getNome());
+        }
+        if(mesa.getJogadores().size()>2) {
+            tvNomePlayer2.setText(mesa.getJogadores().get(posiB).getNome());
+        }
+        if(mesa.getJogadores().size()>3) {
+            tvNomePlayer3.setText(mesa.getJogadores().get(posiC).getNome());
+        }
+
     }
 
     private void identificaPlayer(){
@@ -159,6 +179,7 @@ public class MesaJogoActivity extends AppCompatActivity {
                 mesa.getJogadores().add(j);
                 mesa.salvar();
                 posi = mesa.getJogadores().indexOf(j);
+
                 //Atualizar Tela
                 atualizaHandTela();
                 //tvNomeJogador.setText(posi + " - " + tvNome.getText().toString());
@@ -169,5 +190,16 @@ public class MesaJogoActivity extends AppCompatActivity {
         tvNome = v.findViewById(R.id.tv_nome);
     }
 
+    private void inicializaPosicoes(){
+        switch (posi) {
+            case 0: {posiA = 1; posiB = 2; posiC = 3; break;}
+            case 1: {posiA = 0; posiB = 3; posiC = 2; break;}
+            case 2: {posiA = 3; posiB = 0; posiC = 1; break;}
+            case 3: {posiA = 0; posiB = 1; posiC = 2; break;}
+
+        }
+
+
+    }
 
 }

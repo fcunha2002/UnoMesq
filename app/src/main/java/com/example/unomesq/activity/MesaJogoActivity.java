@@ -41,6 +41,17 @@ public class MesaJogoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mesa_jogo);
 
+        buscaMesa();
+
+        inicializaRVMao();
+
+        identificaPlayer();
+
+        inicializaCartaDescarte();
+
+    }
+
+    private void inicializaRVMao(){
         rvCartasMao = findViewById(R.id.rv_cartas_mao);
         //Adicionando tratamento de clique
         rvCartasMao.addOnItemTouchListener(new RecyclerItemClickListener(
@@ -79,11 +90,9 @@ public class MesaJogoActivity extends AppCompatActivity {
                     }
                 }
         ));
+    }
 
-        buscaMesa();
-
-        identificaPlayer();
-
+    private void inicializaCartaDescarte(){
         ivDescarte = findViewById(R.id.iv_carta_descarte);
 
         referenciaFirebase.child("descarte").child("carta").addValueEventListener(new ValueEventListener() {
@@ -102,7 +111,6 @@ public class MesaJogoActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     private void buscaMesa(){

@@ -59,81 +59,81 @@ public class Baralho {
         carta = new Carta(Color.RED, 8, 8, R.drawable.r8);
         cartas.add(carta);
 
-//        //Amarelo
-//        carta = new Carta(Color.YELLOW, 0, 0, R.drawable.y0);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 1, 1, R.drawable.y1);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 1, 1, R.drawable.y1);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 2, 2, R.drawable.y2);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 2, 2, R.drawable.y2);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 3, 3, R.drawable.y3);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 3, 3, R.drawable.y3);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 4, 4, R.drawable.y4);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 4, 4, R.drawable.y4);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 5, 5, R.drawable.y5);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 5, 5, R.drawable.y5);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 6, 6, R.drawable.y6);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 6, 6, R.drawable.y6);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 7, 7, R.drawable.y7);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 7, 7, R.drawable.y7);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 8, 8, R.drawable.y8);
-//        cartas.add(carta);
-//        carta = new Carta(Color.YELLOW, 8, 8, R.drawable.y8);
-//        cartas.add(carta);
-//
-//        //Verde
-//        carta = new Carta(Color.GREEN, 0, 0, R.drawable.g0);
-//        cartas.add(carta);
-//        carta = new Carta(Color.GREEN, 1, 1, R.drawable.g1);
-//        cartas.add(carta);
-//        carta = new Carta(Color.GREEN, 1, 1, R.drawable.g1);
-//        cartas.add(carta);
-//        carta = new Carta(Color.GREEN, 2, 2, R.drawable.g2);
-//        cartas.add(carta);
-//        carta = new Carta(Color.GREEN, 2, 2, R.drawable.g2);
-//        cartas.add(carta);
-//        carta = new Carta(Color.GREEN, 3, 3, R.drawable.g3);
-//        cartas.add(carta);
-//        carta = new Carta(Color.GREEN, 3, 3, R.drawable.g3);
-//        cartas.add(carta);
-//        carta = new Carta(Color.GREEN, 4, 4, R.drawable.g4);
-//        cartas.add(carta);
-//        carta = new Carta(Color.GREEN, 4, 4, R.drawable.g4);
-//        cartas.add(carta);
-//
-//        //Azul
-//        carta = new Carta(Color.BLUE, 0, 0, R.drawable.b0);
-//        cartas.add(carta);
-//        carta = new Carta(Color.BLUE, 1, 1, R.drawable.b1);
-//        cartas.add(carta);
-//        carta = new Carta(Color.BLUE, 1, 1, R.drawable.b1);
-//        cartas.add(carta);
-//        carta = new Carta(Color.BLUE, 2, 2, R.drawable.b2);
-//        cartas.add(carta);
-//        carta = new Carta(Color.BLUE, 2, 2, R.drawable.b2);
-//        cartas.add(carta);
-//        carta = new Carta(Color.BLUE, 3, 3, R.drawable.b3);
-//        cartas.add(carta);
-//        carta = new Carta(Color.BLUE, 3, 3, R.drawable.b3);
-//        cartas.add(carta);
-//        carta = new Carta(Color.BLUE, 4, 4, R.drawable.b4);
-//        cartas.add(carta);
-//        carta = new Carta(Color.BLUE, 4, 4, R.drawable.b4);
-//        cartas.add(carta);
+        //Amarelo
+        carta = new Carta(Color.YELLOW, 0, 0, R.drawable.y0);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 1, 1, R.drawable.y1);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 1, 1, R.drawable.y1);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 2, 2, R.drawable.y2);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 2, 2, R.drawable.y2);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 3, 3, R.drawable.y3);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 3, 3, R.drawable.y3);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 4, 4, R.drawable.y4);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 4, 4, R.drawable.y4);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 5, 5, R.drawable.y5);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 5, 5, R.drawable.y5);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 6, 6, R.drawable.y6);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 6, 6, R.drawable.y6);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 7, 7, R.drawable.y7);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 7, 7, R.drawable.y7);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 8, 8, R.drawable.y8);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 8, 8, R.drawable.y8);
+        cartas.add(carta);
+
+        //Verde
+        carta = new Carta(Color.GREEN, 0, 0, R.drawable.g0);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 1, 1, R.drawable.g1);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 1, 1, R.drawable.g1);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 2, 2, R.drawable.g2);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 2, 2, R.drawable.g2);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 3, 3, R.drawable.g3);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 3, 3, R.drawable.g3);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 4, 4, R.drawable.g4);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 4, 4, R.drawable.g4);
+        cartas.add(carta);
+
+        //Azul
+        carta = new Carta(Color.BLUE, 0, 0, R.drawable.b0);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 1, 1, R.drawable.b1);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 1, 1, R.drawable.b1);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 2, 2, R.drawable.b2);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 2, 2, R.drawable.b2);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 3, 3, R.drawable.b3);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 3, 3, R.drawable.b3);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 4, 4, R.drawable.b4);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 4, 4, R.drawable.b4);
+        cartas.add(carta);
 
     }
 

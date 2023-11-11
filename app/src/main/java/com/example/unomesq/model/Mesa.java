@@ -28,7 +28,6 @@ public class Mesa {
     }
 
     public void setSentido(boolean sentido) {
-
         Sentido = Sentido;
     }
 

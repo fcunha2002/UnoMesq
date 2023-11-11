@@ -35,6 +35,7 @@ public class MesaJogoActivity extends AppCompatActivity {
     private TextView tvNomePlayer2;
     private TextView tvNomePlayer3;
     private ImageView ivDescarte;
+    private ImageView ivBaralho;
 
     private Mesa mesa;
     private int posi;
@@ -44,6 +45,8 @@ public class MesaJogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mesa_jogo);
+
+        ivBaralho = findViewById(R.id.iv_baralho);
 
         buscaMesa();
 
@@ -57,6 +60,8 @@ public class MesaJogoActivity extends AppCompatActivity {
 
     private void inicializaRVMao(){
         rvCartasMao = findViewById(R.id.rv_cartas_mao);
+        rvCartasMao.setVisibility(View.INVISIBLE);
+
         //Adicionando tratamento de clique. A carta clicada é a carta a ser descartada
         //TODO Falta validar a jogada
         rvCartasMao.addOnItemTouchListener(new RecyclerItemClickListener(
@@ -65,22 +70,27 @@ public class MesaJogoActivity extends AppCompatActivity {
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Carta carta =
-                                mesa.getJogadores().get(posi).getHand().get(position);
+                        if (rvCartasMao.isClickable()) {
+                            Carta carta =
+                                    mesa.getJogadores().get(posi).getHand().get(position);
 
-                        //Aqui falta validar a jogada
+                            //Aqui falta validar a jogada
+                            if (mesa.validarJogada(carta)) {
+                                mesa.getJogadores().get(posi).getHand().remove(position);
+                                carta.salvar("descarte", "carta");
+                                mesa.setDescarte(carta);
 
-                        mesa.getJogadores().get(posi).getHand().remove(position);
-                        carta.salvar("descarte", "carta");
-
-                        if (mesa.getMinhaVez() < mesa.getJogadores().size() - 1) {
-                            mesa.setMinhaVez(mesa.getMinhaVez() + 1);
-                        } else {
-                            mesa.setMinhaVez(0);
+                                if (mesa.getMinhaVez() < mesa.getJogadores().size() - 1) {
+                                    mesa.setMinhaVez(mesa.getMinhaVez() + 1);
+                                } else {
+                                    mesa.setMinhaVez(0);
+                                }
+                                mesa.salvar();
+                            } else {
+                                Toast.makeText(getApplicationContext(),
+                                        "Jogada inválida", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        mesa.salvar();
-
-                        Toast.makeText(getApplicationContext(), "CLICK:", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -111,6 +121,10 @@ public class MesaJogoActivity extends AppCompatActivity {
                     ivDescarte.setImageDrawable
                             (AppCompatResources.getDrawable
                                     (getApplicationContext(), descarte.getImagem()));
+                    mesa.setDescarte(descarte);
+                } else {
+                    descarte = mesa.primeiroDescarte();
+                    descarte.salvar("descarte", "carta");
                 }
             }
 
@@ -150,6 +164,16 @@ public class MesaJogoActivity extends AppCompatActivity {
         rvCartasMao.setAdapter(new MaoAdapter(getApplicationContext()
                 , mesa.getJogadores().get(posi).getHand()));
 
+        rvCartasMao.setClickable(false);
+        rvCartasMao.setAlpha(0.5f);
+        ivBaralho.setClickable(false);
+
+        if (mesa.getMinhaVez() == posi) {
+            rvCartasMao.setClickable(true);
+            rvCartasMao.setAlpha(1f);
+            ivBaralho.setClickable(true);
+        }
+
         inicializaPosicoes();
 
         tvNomePlayer1 = findViewById(R.id.tv_nome_player1);
@@ -186,6 +210,8 @@ public class MesaJogoActivity extends AppCompatActivity {
 
                 //Atualizar Tela
                 atualizaHandTela();
+                rvCartasMao.setVisibility(View.VISIBLE);
+
                 //tvNomeJogador.setText(posi + " - " + tvNome.getText().toString());
             }
         });
@@ -198,6 +224,11 @@ public class MesaJogoActivity extends AppCompatActivity {
         posiFrente = mesa.jogFrente(posi);
         posiEsquerda = mesa.jogEsquerda(posi);
         posiDireita = mesa.jogDireita(posi);
+    }
+
+    public void comprar(View view) {
+        mesa.comprarCarta(mesa.getJogadores().get(posi));
+        mesa.salvar();
     }
 
 }

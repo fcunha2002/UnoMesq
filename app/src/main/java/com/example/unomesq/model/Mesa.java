@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class Mesa {
     private ArrayList<Jogador> jogadores = new ArrayList<>();
-    private Baralho baralho = new Baralho();
+    private Baralho baralho;
     private int minhaVez = 0;
     private boolean Sentido = true;
     private Carta descarte;
@@ -37,12 +37,7 @@ public class Mesa {
     }
 
     public Mesa() {
-    }
-
-    public void validarjogada(){
-
-
-
+        this.baralho = new Baralho();
     }
 
     public void salvar(){
@@ -76,6 +71,14 @@ public class Mesa {
         this.minhaVez = minhaVez;
     }
 
+    public Carta primeiroDescarte(){
+        Random r = new Random();
+        int idx = r.nextInt(baralho.getCartas().size());
+        descarte = baralho.getCartas().get(idx);
+        baralho.getCartas().remove(idx);
+        return descarte;
+    }
+
     public void distribuirCartas(Jogador j){
         Random r = new Random();
         int idx;
@@ -86,6 +89,16 @@ public class Mesa {
             baralho.getCartas().remove(idx);
         }
     }
+
+    public boolean validarJogada(Carta jogada){
+        if ((this.descarte.getCor() == jogada.getCor()) ||
+        (this.descarte.getNumero() == jogada.getNumero())){
+            return true;
+        }
+
+        return false;
+    }
+
 
     public void comprarCarta(Jogador j){
         Random r = new Random();

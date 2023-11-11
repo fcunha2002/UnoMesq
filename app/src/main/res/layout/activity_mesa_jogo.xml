@@ -68,13 +68,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.498"
-        app:srcCompat="@drawable/r8" />
+        app:srcCompat="@drawable/verso" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/iv_baralho"
         android:layout_width="75dp"
         android:layout_height="100dp"
         android:layout_marginEnd="148dp"
+        android:onClick="comprar"
         android:rotation="45"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"

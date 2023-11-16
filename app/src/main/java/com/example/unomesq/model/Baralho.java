@@ -135,6 +135,7 @@ public class Baralho {
         carta = new Carta(Color.BLUE, 4, 100, R.drawable.b4);
         cartas.add(carta);
 
+
 //        Teste carta reverse
 
         carta = new Carta(Color.BLUE, 5, 200, R.drawable.rev);

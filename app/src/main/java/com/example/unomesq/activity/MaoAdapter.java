@@ -18,11 +18,11 @@ import java.util.List;
 
 public class MaoAdapter extends RecyclerView.Adapter<MaoAdapter.MyViewHolder> {
 
-    private List<Carta> mao = new ArrayList<Carta>();
+    private ArrayList<Carta> mao = new ArrayList<Carta>();
 
     private Context context;
 
-    public MaoAdapter(Context context, List<Carta> mao) {
+    public MaoAdapter(Context context, ArrayList<Carta> mao) {
         this.context = context;
         this.mao = mao;
     }

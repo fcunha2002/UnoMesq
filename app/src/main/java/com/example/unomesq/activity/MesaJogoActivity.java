@@ -76,7 +76,6 @@ public class MesaJogoActivity extends AppCompatActivity {
                             //Aqui falta validar a jogada
                             if (mesa.validarJogada(carta)) {
                                 mesa.getJogadores().get(posi).getHand().remove(position);
-                                //carta.salvar("descarte", "carta");
                                 mesa.setDescarte(carta);
 
                                 if (mesa.getMinhaVez() < mesa.getJogadores().size() - 1) {

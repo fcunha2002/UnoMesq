@@ -37,6 +37,7 @@ public class Mesa {
 
     public Mesa() {
         this.baralho = new Baralho();
+        primeiroDescarte();
     }
 
     public void salvar(){
@@ -70,12 +71,11 @@ public class Mesa {
         this.minhaVez = minhaVez;
     }
 
-    public Carta primeiroDescarte(){
+    private void primeiroDescarte(){
         Random r = new Random();
         int idx = r.nextInt(baralho.getCartas().size());
         descarte = baralho.getCartas().get(idx);
         baralho.getCartas().remove(idx);
-        return descarte;
     }
 
     public void distribuirCartas(Jogador j){

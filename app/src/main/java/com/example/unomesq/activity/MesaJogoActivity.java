@@ -47,14 +47,13 @@ public class MesaJogoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mesa_jogo);
 
         ivBaralho = findViewById(R.id.iv_baralho);
+        ivDescarte = findViewById(R.id.iv_carta_descarte);
 
         buscaMesa();
 
         inicializaRVMao();
 
         identificaPlayer();
-
-        inicializaCartaDescarte();
 
     }
 
@@ -77,7 +76,7 @@ public class MesaJogoActivity extends AppCompatActivity {
                             //Aqui falta validar a jogada
                             if (mesa.validarJogada(carta)) {
                                 mesa.getJogadores().get(posi).getHand().remove(position);
-                                carta.salvar("descarte", "carta");
+                                //carta.salvar("descarte", "carta");
                                 mesa.setDescarte(carta);
 
                                 if (mesa.getMinhaVez() < mesa.getJogadores().size() - 1) {
@@ -110,31 +109,6 @@ public class MesaJogoActivity extends AppCompatActivity {
         ));
     }
 
-    private void inicializaCartaDescarte(){
-        ivDescarte = findViewById(R.id.iv_carta_descarte);
-
-        referenciaFirebase.child("descarte").child("carta").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Carta descarte = snapshot.getValue(Carta.class);
-                if (descarte != null) {
-                    ivDescarte.setImageDrawable
-                            (AppCompatResources.getDrawable
-                                    (getApplicationContext(), descarte.getImagem()));
-                    mesa.setDescarte(descarte);
-                } else {
-                    descarte = mesa.primeiroDescarte();
-                    descarte.salvar("descarte", "carta");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-
     private void buscaMesa(){
         referenciaFirebase.child("mesa").addValueEventListener(new ValueEventListener() {
             @Override
@@ -145,6 +119,9 @@ public class MesaJogoActivity extends AppCompatActivity {
                     mesa.salvar();
                 } else {
                     if (!mesa.getJogadores().isEmpty()) {
+                        if (mesa.getJogadores().size()==4){
+                        //TODO Aqui precisa implementar multiplas mesas
+                        }
                         atualizaHandTela();
                     }
                 }
@@ -189,6 +166,10 @@ public class MesaJogoActivity extends AppCompatActivity {
         if(mesa.getJogadores().size()>3) {
             tvNomePlayer3.setText(mesa.getJogadores().get(posiDireita).getNome());
         }
+
+        ivDescarte.setImageDrawable
+                (AppCompatResources.getDrawable
+                        (getApplicationContext(), mesa.getDescarte().getImagem()));
 
     }
 

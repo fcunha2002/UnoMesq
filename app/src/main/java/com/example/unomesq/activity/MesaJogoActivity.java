@@ -174,7 +174,7 @@ public class MesaJogoActivity extends AppCompatActivity {
                 , mesa.getJogadores().get(posi).getHand()));
 
         rvCartasMao.setClickable(false);
-        rvCartasMao.setAlpha(0.5f);
+        rvCartasMao.setAlpha(0.25f);
         ivBaralho.setClickable(false);
 
         if (mesa.getMinhaVez() == posi) {

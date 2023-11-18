@@ -11,7 +11,7 @@ public class Mesa {
     private ArrayList<Jogador> jogadores = new ArrayList<>();
     private Baralho baralho;
     private int minhaVez = 0;
-    private boolean Sentido = true;
+    private boolean sentido = true;
     private Carta descarte;
 
     private final int QTD_CARTAS_INICIAL = 7;
@@ -22,26 +22,6 @@ public class Mesa {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Carta getDescarte() {
-        return descarte;
-    }
-
-    public void setDescarte(Carta descarte) {
-        this.descarte = descarte;
-    }
-
-    public boolean getSentido() {
-        return Sentido;
-    }
-
-    public void setSentido(boolean sentido) {
-        Sentido = Sentido;
-    }
-
-    public Mesa(boolean sentido) {
-        Sentido = sentido;
     }
 
     public Mesa() {
@@ -89,6 +69,22 @@ public class Mesa {
         this.minhaVez = minhaVez;
     }
 
+    public Carta getDescarte() {
+        return descarte;
+    }
+
+    public void setDescarte(Carta descarte) {
+        this.descarte = descarte;
+    }
+
+    public boolean isSentido() {
+        return sentido;
+    }
+
+    public void setSentido(boolean sentido) {
+        this.sentido = sentido;
+    }
+
     private void primeiroDescarte(){
         Random r = new Random();
         int idx = r.nextInt(baralho.getCartas().size());
@@ -108,8 +104,12 @@ public class Mesa {
     }
 
     public boolean validarJogada(Carta jogada){
+
         if ((this.descarte.getCor() == jogada.getCor()) ||
         (this.descarte.getNumero() == jogada.getNumero())){
+            if (jogada.getNumero() == 11){
+                this.sentido = !this.sentido;
+            }
             return true;
         }
 

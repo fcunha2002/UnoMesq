@@ -82,10 +82,18 @@ public class MesaJogoActivity extends AppCompatActivity {
                                 mesa.getJogadores().get(posi).getHand().remove(position);
                                 mesa.setDescarte(carta);
 
-                                if (mesa.getMinhaVez() < mesa.getJogadores().size() - 1) {
-                                    mesa.setMinhaVez(mesa.getMinhaVez() + 1);
+                                if (mesa.isSentido()) {
+                                    if (mesa.getMinhaVez() < mesa.getJogadores().size() - 1) {
+                                        mesa.setMinhaVez(mesa.getMinhaVez() + 1);
+                                    } else {
+                                        mesa.setMinhaVez(0);
+                                    }
                                 } else {
-                                    mesa.setMinhaVez(0);
+                                    if (mesa.getMinhaVez() == 0){
+                                        mesa.setMinhaVez(mesa.getJogadores().size() - 1);
+                                    } else {
+                                        mesa.setMinhaVez(mesa.getMinhaVez() - 1);
+                                    }
                                 }
                                 mesa.salvar(mesaID);
                             } else {

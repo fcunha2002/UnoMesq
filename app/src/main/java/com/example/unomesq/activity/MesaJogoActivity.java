@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.unomesq.R;
 import com.example.unomesq.model.Carta;
 import com.example.unomesq.model.Jogador;
+import com.example.unomesq.model.Jogos;
 import com.example.unomesq.model.Mesa;
 import com.example.unomesq.util.RecyclerItemClickListener;
 import com.google.firebase.database.DataSnapshot;
@@ -37,7 +38,9 @@ public class MesaJogoActivity extends AppCompatActivity {
     private ImageView ivDescarte;
     private ImageView ivBaralho;
 
+    private Jogos jogos;
     private Mesa mesa;
+    private int mesaID;
     private int posi;
     private int posiFrente, posiEsquerda, posiDireita;
 
@@ -49,7 +52,8 @@ public class MesaJogoActivity extends AppCompatActivity {
         ivBaralho = findViewById(R.id.iv_baralho);
         ivDescarte = findViewById(R.id.iv_carta_descarte);
 
-        buscaMesa();
+        defineMesa();
+        //buscaMesa();
 
         inicializaRVMao();
 
@@ -83,7 +87,7 @@ public class MesaJogoActivity extends AppCompatActivity {
                                 } else {
                                     mesa.setMinhaVez(0);
                                 }
-                                mesa.salvar();
+                                mesa.salvar(mesaID);
                             } else {
                                 Toast.makeText(getApplicationContext(),
                                         "Jogada inválida", Toast.LENGTH_SHORT).show();
@@ -108,6 +112,37 @@ public class MesaJogoActivity extends AppCompatActivity {
         ));
     }
 
+    private void defineMesa(){
+        ValueEventListener vel = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                jogos = snapshot.getValue(Jogos.class);
+                if (jogos == null){
+                    jogos = new Jogos();
+                    mesa = new Mesa();
+                    mesa.atribuiId();
+                    mesaID = 0;
+                    jogos.getMesas().add(mesa);
+                    jogos.salvar();
+                } else {
+                    //definir mesaID
+                    mesaID = 0;
+                    if (!mesa.getJogadores().isEmpty()) {
+                        atualizaHandTela();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        referenciaFirebase.child("jogos").addValueEventListener(vel);
+        //referenciaFirebase.child("jogos").removeEventListener(vel);
+
+    }
+
     private void buscaMesa(){
         referenciaFirebase.child("mesa").addValueEventListener(new ValueEventListener() {
             @Override
@@ -115,7 +150,10 @@ public class MesaJogoActivity extends AppCompatActivity {
                 mesa = snapshot.getValue(Mesa.class);
                 if (mesa == null){
                     mesa = new Mesa();
-                    mesa.salvar();
+                    mesa.atribuiId();
+                    jogos.getMesas().add(mesa);
+//                    jogos.salvar();
+//                    mesa.salvar();
                 } else {
                     if (!mesa.getJogadores().isEmpty()) {
                         if (mesa.getJogadores().size()==4){
@@ -185,7 +223,7 @@ public class MesaJogoActivity extends AppCompatActivity {
                 //distribuir cartas
                 mesa.distribuirCartas(j);
                 mesa.getJogadores().add(j);
-                mesa.salvar();
+                mesa.salvar(mesaID);
                 posi = mesa.getJogadores().indexOf(j);
 
                 //Atualizar Tela
@@ -208,7 +246,7 @@ public class MesaJogoActivity extends AppCompatActivity {
 
     public void comprar(View view) {
         mesa.comprarCarta(mesa.getJogadores().get(posi));
-        mesa.salvar();
+        mesa.salvar(mesaID);
     }
 
 }

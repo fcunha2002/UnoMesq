@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Mesa {
+    private String id;
     private ArrayList<Jogador> jogadores = new ArrayList<>();
     private Baralho baralho;
     private int minhaVez = 0;
@@ -14,6 +15,14 @@ public class Mesa {
     private Carta descarte;
 
     private final int QTD_CARTAS_INICIAL = 7;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Carta getDescarte() {
         return descarte;
@@ -40,11 +49,20 @@ public class Mesa {
         primeiroDescarte();
     }
 
-    public void salvar(){
+    public void salvar(int idx){
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
-        DatabaseReference mesaRef = firebaseRef.child("mesa");
+        DatabaseReference mesaRef = firebaseRef.child("jogos").child("mesas").child(String.valueOf(idx));
 
         mesaRef.setValue(this);
+    }
+
+    public void atribuiId(){
+        DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
+
+        //Gera uma chave única (ID) com o comando push()
+        DatabaseReference mesaRef = firebaseRef.child("jogos").child("mesa").push();
+        // Pega a chave única (ID) gerada com o comando push()
+        this.id = mesaRef.getKey();
     }
 
     public ArrayList<Jogador> getJogadores() {

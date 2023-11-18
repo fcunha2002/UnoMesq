@@ -77,24 +77,10 @@ public class MesaJogoActivity extends AppCompatActivity {
                             Carta carta =
                                     mesa.getJogadores().get(posi).getHand().get(position);
 
-                            //Aqui falta validar a jogada
                             if (mesa.validarJogada(carta)) {
                                 mesa.getJogadores().get(posi).getHand().remove(position);
                                 mesa.setDescarte(carta);
 
-                                if (mesa.isSentido()) {
-                                    if (mesa.getMinhaVez() < mesa.getJogadores().size() - 1) {
-                                        mesa.setMinhaVez(mesa.getMinhaVez() + 1);
-                                    } else {
-                                        mesa.setMinhaVez(0);
-                                    }
-                                } else {
-                                    if (mesa.getMinhaVez() == 0){
-                                        mesa.setMinhaVez(mesa.getJogadores().size() - 1);
-                                    } else {
-                                        mesa.setMinhaVez(mesa.getMinhaVez() - 1);
-                                    }
-                                }
                                 mesa.salvar(mesaID);
                             } else {
                                 Toast.makeText(getApplicationContext(),

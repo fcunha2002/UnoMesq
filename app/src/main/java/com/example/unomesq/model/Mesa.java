@@ -110,10 +110,28 @@ public class Mesa {
             if (jogada.getNumero() == 11){
                 this.sentido = !this.sentido;
             }
+            defineProximo();
             return true;
         }
 
         return false;
+    }
+
+    private void defineProximo(){
+        if (this.sentido) {
+            if (this.minhaVez < this.jogadores.size() - 1) {
+                this.minhaVez = this.minhaVez + 1;
+            } else {
+                this.minhaVez = 0;
+            }
+        } else {
+            if (this.minhaVez == 0){
+                this.minhaVez = this.jogadores.size() - 1;
+            } else {
+                this.minhaVez = this.minhaVez - 1;
+            }
+        }
+
     }
 
 

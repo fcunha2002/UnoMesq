@@ -127,6 +127,7 @@ public class MesaJogoActivity extends AppCompatActivity {
                 } else {
                     //definir mesaID
                     mesaID = 0;
+                    mesa = jogos.getMesas().get(mesaID);
                     if (!mesa.getJogadores().isEmpty()) {
                         atualizaHandTela();
                     }

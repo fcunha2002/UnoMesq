@@ -110,7 +110,12 @@ public class Mesa {
             if (jogada.getNumero() == 11){
                 this.sentido = !this.sentido;
             }
+            //Implementação do bloqueio
+            if (jogada.getNumero() == 10){
+                defineProximo();
+            }
             defineProximo();
+
             return true;
         }
 

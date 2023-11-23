@@ -134,8 +134,6 @@ public class MesaJogoActivity extends AppCompatActivity {
             }
         };
         referenciaFirebase.child("jogos").addValueEventListener(vel);
-        //referenciaFirebase.child("jogos").removeEventListener(vel);
-
     }
 
     private void buscaMesa(){

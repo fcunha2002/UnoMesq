@@ -66,6 +66,10 @@ public class Baralho {
         cartas.add(carta);
         carta = new Carta(Color.RED, 11, 300, R.drawable.rrev);
         cartas.add(carta);
+        carta = new Carta(Color.RED, 12, 400, R.drawable.rsoma2);
+        cartas.add(carta);
+        carta = new Carta(Color.RED, 12, 400, R.drawable.rsoma2);
+        cartas.add(carta);
 
         //Amarelo
         carta = new Carta(Color.YELLOW, 0, 100, R.drawable.y0);
@@ -110,6 +114,10 @@ public class Baralho {
         cartas.add(carta);
         carta = new Carta(Color.YELLOW, 11, 300, R.drawable.yrev);
         cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 12, 400, R.drawable.ysoma2);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 12, 400, R.drawable.ysoma2);
+        cartas.add(carta);
 
         //Verde
         carta = new Carta(Color.GREEN, 0, 100, R.drawable.g0);
@@ -138,6 +146,10 @@ public class Baralho {
         cartas.add(carta);
         carta = new Carta(Color.GREEN, 11, 300, R.drawable.grev);
         cartas.add(carta);
+        carta = new Carta(Color.GREEN, 12, 400, R.drawable.gsoma2);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 12, 400, R.drawable.gsoma2);
+        cartas.add(carta);
 
         //Azul
         carta = new Carta(Color.BLUE, 0, 100, R.drawable.b0);
@@ -165,6 +177,10 @@ public class Baralho {
         carta = new Carta(Color.BLUE, 11, 300, R.drawable.brev);
         cartas.add(carta);
         carta = new Carta(Color.BLUE, 11, 300, R.drawable.brev);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 12, 400, R.drawable.bsoma2);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 12, 400, R.drawable.bsoma2);
         cartas.add(carta);
 
     }

@@ -115,7 +115,10 @@ public class Mesa {
                 defineProximo();
             }
             defineProximo();
-
+            if (jogada.getNumero() == 12) {
+                comprarCarta(jogadores.get(minhaVez));
+                comprarCarta(jogadores.get(minhaVez));
+            }
             return true;
         }
 

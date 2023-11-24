@@ -85,6 +85,10 @@ public class MesaJogoActivity extends AppCompatActivity {
                                 mesa.salvar(mesaID);
                             } else if (result == 1){
                                 escolherCores();
+//                                mesa.getJogadores().get(posi).getHand().remove(position);
+//                                mesa.setDescarte(carta);
+//
+//                                mesa.salvar(mesaID);
                             } else {
                                 Toast.makeText(getApplicationContext(),
                                         "Jogada inválida", Toast.LENGTH_SHORT).show();
@@ -169,14 +173,8 @@ public class MesaJogoActivity extends AppCompatActivity {
 
     private void escolherCores(){
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-        dialogo.setTitle("JOGO ENCERRADO");
-        dialogo.setCancelable(false);
-        dialogo.setMessage("ESCOLHA A COR");
-        dialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
-        });
+        dialogo.setTitle("ESCOLHA A COR");
+        dialogo.setCancelable(true);
         dialogo.create();
         dialogo.show();
     }

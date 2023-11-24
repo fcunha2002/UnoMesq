@@ -14,7 +14,7 @@ public class Mesa {
     private boolean sentido = true;
     private Carta descarte;
 
-    private final int QTD_CARTAS_INICIAL = 3;
+    private final int QTD_CARTAS_INICIAL = 7;
 
     public String getId() {
         return id;

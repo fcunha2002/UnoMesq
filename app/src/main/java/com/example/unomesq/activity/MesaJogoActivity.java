@@ -164,14 +164,11 @@ public class MesaJogoActivity extends AppCompatActivity {
 
     private void mostraVencedor(Jogador j){
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-        dialogo.setTitle("JOGO ENCERRADO");
-        dialogo.setCancelable(false);
-        dialogo.setMessage(j.getNome() + " GANHOU!!!");
-        dialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
-        });
+        View v = getLayoutInflater().inflate(R.layout.tela_ganhador, null);
+        dialogo.setView(v);
+        TextView tv = v.findViewById(R.id.tv_vencedor);
+        tv.setText(j.getNome());
+        dialogo.setCancelable(true);
         dialogo.create();
         dialogo.show();
     }
@@ -180,6 +177,8 @@ public class MesaJogoActivity extends AppCompatActivity {
         for (Jogador j: mesa.getJogadores()) {
             if (j.getHand().size() == 0){
                 mostraVencedor(j);
+                jogos.getMesas().remove(mesa);
+                jogos.salvar();
             }
         }
     }

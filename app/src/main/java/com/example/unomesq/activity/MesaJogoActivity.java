@@ -40,7 +40,7 @@ public class MesaJogoActivity extends AppCompatActivity {
 
     private Jogos jogos;
     private Mesa mesa;
-    private int mesaID;
+    private int mesaID = -1;
     private int posi;
     private int posiFrente, posiEsquerda, posiDireita;
 
@@ -53,7 +53,6 @@ public class MesaJogoActivity extends AppCompatActivity {
         ivDescarte = findViewById(R.id.iv_carta_descarte);
 
         defineMesa();
-        //buscaMesa();
 
         inicializaRVMao();
 
@@ -126,8 +125,20 @@ public class MesaJogoActivity extends AppCompatActivity {
                     jogos.getMesas().add(mesa);
                     jogos.salvar();
                 } else {
-                    //definir mesaID
-                    mesaID = 0;
+                    if (mesaID == -1) {
+                        for (Mesa m: jogos.getMesas()) {
+                            if (m.getJogadores().size() < 4){
+                                mesaID = jogos.getMesas().indexOf(m);
+                            }
+                        }
+                        if (mesaID == -1){
+                            mesa = new Mesa();
+                            mesa.atribuiId();
+                            jogos.getMesas().add(mesa);
+                            mesaID = jogos.getMesas().size() - 1;
+                            jogos.salvar();
+                        }
+                    }
                     mesa = jogos.getMesas().get(mesaID);
                     if (!mesa.getJogadores().isEmpty()) {
                         atualizaHandTela();
@@ -141,34 +152,6 @@ public class MesaJogoActivity extends AppCompatActivity {
             }
         };
         referenciaFirebase.child("jogos").addValueEventListener(vel);
-    }
-
-    private void buscaMesa(){
-        referenciaFirebase.child("mesa").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                mesa = snapshot.getValue(Mesa.class);
-                if (mesa == null){
-                    mesa = new Mesa();
-                    mesa.atribuiId();
-                    jogos.getMesas().add(mesa);
-//                    jogos.salvar();
-//                    mesa.salvar();
-                } else {
-                    if (!mesa.getJogadores().isEmpty()) {
-                        if (mesa.getJogadores().size()==4){
-                        //TODO Aqui precisa implementar multiplas mesas
-                        }
-                        atualizaHandTela();
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
     private void escolherCores(){

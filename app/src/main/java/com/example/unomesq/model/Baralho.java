@@ -183,6 +183,17 @@ public class Baralho {
         carta = new Carta(Color.BLUE, 12, 400, R.drawable.bsoma2);
         cartas.add(carta);
 
+        //Curingas
+        carta = new Carta(Color.BLACK, 13, 500, R.drawable.cores);
+        cartas.add(carta);
+        carta = new Carta(Color.BLACK, 13, 500, R.drawable.cores);
+        cartas.add(carta);
+        carta = new Carta(Color.BLACK, 13, 500, R.drawable.cores);
+        cartas.add(carta);
+        carta = new Carta(Color.BLACK, 13, 500, R.drawable.cores);
+        cartas.add(carta);
+
+
     }
 
     private void embaralhar(){

@@ -76,12 +76,15 @@ public class MesaJogoActivity extends AppCompatActivity {
                         if (rvCartasMao.isClickable()) {
                             Carta carta =
                                     mesa.getJogadores().get(posi).getHand().get(position);
+                            int result = mesa.validarJogada(carta);
 
-                            if (mesa.validarJogada(carta)) {
+                            if (result == 0) {
                                 mesa.getJogadores().get(posi).getHand().remove(position);
                                 mesa.setDescarte(carta);
 
                                 mesa.salvar(mesaID);
+                            } else if (result == 1){
+                                escolherCores();
                             } else {
                                 Toast.makeText(getApplicationContext(),
                                         "Jogada inválida", Toast.LENGTH_SHORT).show();
@@ -162,6 +165,20 @@ public class MesaJogoActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void escolherCores(){
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        dialogo.setTitle("JOGO ENCERRADO");
+        dialogo.setCancelable(false);
+        dialogo.setMessage("ESCOLHA A COR");
+        dialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        dialogo.create();
+        dialogo.show();
     }
 
     private void mostraVencedor(Jogador j){

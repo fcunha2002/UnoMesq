@@ -103,7 +103,11 @@ public class Mesa {
         }
     }
 
-    public boolean validarJogada(Carta jogada){
+    public int validarJogada(Carta jogada){
+
+        if(jogada.getNumero() == 13){
+            return 1;
+        }
 
         if ((this.descarte.getCor() == jogada.getCor()) ||
         (this.descarte.getNumero() == jogada.getNumero())){
@@ -119,10 +123,10 @@ public class Mesa {
                 comprarCarta(jogadores.get(minhaVez));
                 comprarCarta(jogadores.get(minhaVez));
             }
-            return true;
+            return 0;
         }
 
-        return false;
+        return -1;
     }
 
     private void defineProximo(){

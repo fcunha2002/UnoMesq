@@ -58,6 +58,10 @@ public class Baralho {
         cartas.add(carta);
         carta = new Carta(Color.RED, 8, 100, R.drawable.r8);
         cartas.add(carta);
+        carta = new Carta(Color.RED, 9, 100, R.drawable.r9);
+        cartas.add(carta);
+        carta = new Carta(Color.RED, 9, 100, R.drawable.r9);
+        cartas.add(carta);
         carta = new Carta(Color.RED, 10, 200, R.drawable.rbloq);
         cartas.add(carta);
         carta = new Carta(Color.RED, 10, 200, R.drawable.rbloq);
@@ -106,6 +110,10 @@ public class Baralho {
         cartas.add(carta);
         carta = new Carta(Color.YELLOW, 8, 100, R.drawable.y8);
         cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 9, 100, R.drawable.y9);
+        cartas.add(carta);
+        carta = new Carta(Color.YELLOW, 9, 100, R.drawable.y9);
+        cartas.add(carta);
         carta = new Carta(Color.YELLOW, 10, 200, R.drawable.ybloq);
         cartas.add(carta);
         carta = new Carta(Color.YELLOW, 10, 200, R.drawable.ybloq);
@@ -137,6 +145,26 @@ public class Baralho {
         carta = new Carta(Color.GREEN, 4, 100, R.drawable.g4);
         cartas.add(carta);
         carta = new Carta(Color.GREEN, 4, 100, R.drawable.g4);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 5, 100, R.drawable.g5);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 5, 100, R.drawable.g5);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 6, 100, R.drawable.g6);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 6, 100, R.drawable.g6);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 7, 100, R.drawable.g7);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 7, 100, R.drawable.g7);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 8, 100, R.drawable.g8);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 8, 100, R.drawable.g8);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 9, 100, R.drawable.g9);
+        cartas.add(carta);
+        carta = new Carta(Color.GREEN, 9, 100, R.drawable.g9);
         cartas.add(carta);
         carta = new Carta(Color.GREEN, 10, 200, R.drawable.gbloq);
         cartas.add(carta);
@@ -170,6 +198,26 @@ public class Baralho {
         cartas.add(carta);
         carta = new Carta(Color.BLUE, 4, 100, R.drawable.b4);
         cartas.add(carta);
+        carta = new Carta(Color.BLUE, 5, 100, R.drawable.b5);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 5, 100, R.drawable.b5);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 6, 100, R.drawable.b6);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 6, 100, R.drawable.b6);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 7, 100, R.drawable.b7);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 7, 100, R.drawable.b7);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 8, 100, R.drawable.b8);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 8, 100, R.drawable.b8);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 9, 100, R.drawable.b9);
+        cartas.add(carta);
+        carta = new Carta(Color.BLUE, 9, 100, R.drawable.b9);
+        cartas.add(carta);
         carta = new Carta(Color.BLUE, 10, 200, R.drawable.bbloq);
         cartas.add(carta);
         carta = new Carta(Color.BLUE, 10, 200, R.drawable.bbloq);
@@ -193,15 +241,15 @@ public class Baralho {
         carta = new Carta(Color.BLACK, 13, 500, R.drawable.cores);
         cartas.add(carta);
 
+        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
+        cartas.add(carta);
+        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
+        cartas.add(carta);
+        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
+        cartas.add(carta);
+        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
+        cartas.add(carta);
 
-    }
-
-    private void embaralhar(){
-        //TODO Criar o método de embaralhamento
-    }
-
-    private void distribuir_cartas(){
-        //TODO Criar o método de distribuição de cartas
     }
 
 }

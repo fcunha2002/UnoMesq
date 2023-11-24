@@ -164,7 +164,32 @@ public class MesaJogoActivity extends AppCompatActivity {
         });
     }
 
+    private void mostraVencedor(Jogador j){
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        dialogo.setTitle("JOGO ENCERRADO");
+        dialogo.setCancelable(false);
+        dialogo.setMessage(j.getNome() + " GANHOU!!!");
+        dialogo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        dialogo.create();
+        dialogo.show();
+    }
+
+    private void verificaVencedor(){
+        for (Jogador j: mesa.getJogadores()) {
+            if (j.getHand().size() == 0){
+                mostraVencedor(j);
+            }
+        }
+    }
+
     private void atualizaHandTela(){
+
+        //VerificarVencedor
+        verificaVencedor();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rvCartasMao.setLayoutManager(layoutManager);

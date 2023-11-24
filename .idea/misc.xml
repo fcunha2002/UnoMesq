@@ -5,12 +5,14 @@
       <map>
         <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/drawable/bordas.xml" value="0.1" />
         <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/drawable/qt9.xml" value="0.1" />
+        <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/layout/activity_escolher_cor.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/layout/activity_inicial.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/layout/activity_interface_teste.xml" value="0.1" />
         <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/layout/activity_mesa_jogo.xml" value="0.33" />
         <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/layout/activity_tela_ganhador.xml" value="0.140625" />
         <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/layout/carta_image_view.xml" value="0.33" />
+        <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/layout/escolher_cor.xml" value="0.33" />
         <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/layout/item.xml" value="0.21" />
         <entry key="..\:/Users/fabiom/AndroidStudioProjects/UnoMesq/app/src/main/res/layout/tela_ganhador.xml" value="0.5" />
       </map>

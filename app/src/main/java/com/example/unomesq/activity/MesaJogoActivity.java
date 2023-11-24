@@ -156,7 +156,8 @@ public class MesaJogoActivity extends AppCompatActivity {
 
     private void escolherCores(){
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-        dialogo.setTitle("ESCOLHA A COR");
+        View v = getLayoutInflater().inflate(R.layout.escolher_cor, null);
+        dialogo.setView(v);
         dialogo.setCancelable(true);
         dialogo.create();
         dialogo.show();

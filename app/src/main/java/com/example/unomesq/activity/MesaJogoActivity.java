@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -84,11 +85,7 @@ public class MesaJogoActivity extends AppCompatActivity {
 
                                 mesa.salvar(mesaID);
                             } else if (result == 1){
-                                escolherCores();
-//                                mesa.getJogadores().get(posi).getHand().remove(position);
-//                                mesa.setDescarte(carta);
-//
-//                                mesa.salvar(mesaID);
+                                escolherCores(carta, position);
                             } else {
                                 Toast.makeText(getApplicationContext(),
                                         "Jogada inválida", Toast.LENGTH_SHORT).show();
@@ -155,7 +152,7 @@ public class MesaJogoActivity extends AppCompatActivity {
         referenciaFirebase.child("jogos").addValueEventListener(vel);
     }
 
-    private void escolherCores(){
+    private void escolherCores(Carta carta, int position){
 
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         View v = getLayoutInflater().inflate(R.layout.escolher_cor, null);
@@ -168,6 +165,12 @@ public class MesaJogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu VERMELHO", Toast.LENGTH_SHORT).show();
+                carta.setCor(Color.RED);
+                mesa.getJogadores().get(posi).getHand().remove(position);
+                mesa.setDescarte(carta);
+
+                mesa.salvar(mesaID);
+
                 alert.dismiss();
             }
         });
@@ -177,6 +180,12 @@ public class MesaJogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu AZUL", Toast.LENGTH_SHORT).show();
+                carta.setCor(Color.BLUE);
+                mesa.getJogadores().get(posi).getHand().remove(position);
+                mesa.setDescarte(carta);
+
+                mesa.salvar(mesaID);
+
                 alert.dismiss();
             }
         });
@@ -186,6 +195,12 @@ public class MesaJogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu VERDE", Toast.LENGTH_SHORT).show();
+                carta.setCor(Color.GREEN);
+                mesa.getJogadores().get(posi).getHand().remove(position);
+                mesa.setDescarte(carta);
+
+                mesa.salvar(mesaID);
+
                 alert.dismiss();
             }
         });
@@ -195,6 +210,12 @@ public class MesaJogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu AMARELO", Toast.LENGTH_SHORT).show();
+                carta.setCor(Color.YELLOW);
+                mesa.getJogadores().get(posi).getHand().remove(position);
+                mesa.setDescarte(carta);
+
+                mesa.salvar(mesaID);
+
                 alert.dismiss();
             }
         });
@@ -285,7 +306,6 @@ public class MesaJogoActivity extends AppCompatActivity {
                 atualizaHandTela();
                 rvCartasMao.setVisibility(View.VISIBLE);
 
-                //tvNomeJogador.setText(posi + " - " + tvNome.getText().toString());
             }
         });
         dialogo.create();

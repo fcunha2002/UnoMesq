@@ -320,6 +320,8 @@ public class MesaJogoActivity extends AppCompatActivity {
     }
 
     public void comprar(View view) {
+        // Melhorar: Comprar 1 carta apenas, se servir joga na mesa
+        //Senão passa a vez
         mesa.comprarCarta(mesa.getJogadores().get(posi));
         mesa.salvar(mesaID);
     }

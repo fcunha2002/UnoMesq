@@ -156,15 +156,19 @@ public class MesaJogoActivity extends AppCompatActivity {
     }
 
     private void escolherCores(){
-        final AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         View v = getLayoutInflater().inflate(R.layout.escolher_cor, null);
         dialogo.setView(v);
+        AlertDialog alert = dialogo.create();
+
         Button bRed = v.findViewById(R.id.b_red);
         bRed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu VERMELHO", Toast.LENGTH_SHORT).show();
+                alert.dismiss();
             }
         });
         Button bBlue = v.findViewById(R.id.b_blue);
@@ -173,6 +177,7 @@ public class MesaJogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu AZUL", Toast.LENGTH_SHORT).show();
+                alert.dismiss();
             }
         });
         Button bGreen = v.findViewById(R.id.b_green);
@@ -181,6 +186,7 @@ public class MesaJogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu VERDE", Toast.LENGTH_SHORT).show();
+                alert.dismiss();
             }
         });
         Button bYellow = v.findViewById(R.id.b_yellow);
@@ -189,11 +195,11 @@ public class MesaJogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu AMARELO", Toast.LENGTH_SHORT).show();
+                alert.dismiss();
             }
         });
-        dialogo.setCancelable(true);
-        dialogo.create();
-        dialogo.show();
+
+        alert.show();
     }
 
     private void mostraVencedor(Jogador j){

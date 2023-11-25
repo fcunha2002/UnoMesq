@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -155,9 +156,41 @@ public class MesaJogoActivity extends AppCompatActivity {
     }
 
     private void escolherCores(){
-        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        final AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         View v = getLayoutInflater().inflate(R.layout.escolher_cor, null);
         dialogo.setView(v);
+        Button bRed = v.findViewById(R.id.b_red);
+        bRed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),
+                        "Escolheu VERMELHO", Toast.LENGTH_SHORT).show();
+            }
+        });
+        Button bBlue = v.findViewById(R.id.b_blue);
+        bBlue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),
+                        "Escolheu AZUL", Toast.LENGTH_SHORT).show();
+            }
+        });
+        Button bGreen = v.findViewById(R.id.b_green);
+        bGreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),
+                        "Escolheu VERDE", Toast.LENGTH_SHORT).show();
+            }
+        });
+        Button bYellow = v.findViewById(R.id.b_yellow);
+        bYellow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),
+                        "Escolheu AMARELO", Toast.LENGTH_SHORT).show();
+            }
+        });
         dialogo.setCancelable(true);
         dialogo.create();
         dialogo.show();

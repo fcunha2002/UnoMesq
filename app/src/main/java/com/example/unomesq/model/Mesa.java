@@ -86,8 +86,12 @@ public class Mesa {
     }
 
     private void primeiroDescarte(){
+        int idx;
         Random r = new Random();
-        int idx = r.nextInt(baralho.getCartas().size());
+        do {
+            idx = r.nextInt(baralho.getCartas().size());
+        }while (baralho.getCartas().get(idx).getNumero() == 13 ||
+                baralho.getCartas().get(idx).getNumero() == 14);
         descarte = baralho.getCartas().get(idx);
         baralho.getCartas().remove(idx);
     }

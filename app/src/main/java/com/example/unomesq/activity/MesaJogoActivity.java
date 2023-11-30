@@ -169,8 +169,10 @@ public class MesaJogoActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu VERMELHO", Toast.LENGTH_SHORT).show();
                 carta.setCor(Color.RED);
+                carta.setImagem(R.drawable.coresr);
                 mesa.getJogadores().get(posi).getHand().remove(position);
                 mesa.setDescarte(carta);
+                mesa.defineProximo();
 
                 mesa.salvar(mesaID);
 
@@ -184,8 +186,10 @@ public class MesaJogoActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu AZUL", Toast.LENGTH_SHORT).show();
                 carta.setCor(Color.BLUE);
+                carta.setImagem(R.drawable.coresb);
                 mesa.getJogadores().get(posi).getHand().remove(position);
                 mesa.setDescarte(carta);
+                mesa.defineProximo();
 
                 mesa.salvar(mesaID);
 
@@ -199,8 +203,10 @@ public class MesaJogoActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu VERDE", Toast.LENGTH_SHORT).show();
                 carta.setCor(Color.GREEN);
+                carta.setImagem(R.drawable.coresg);
                 mesa.getJogadores().get(posi).getHand().remove(position);
                 mesa.setDescarte(carta);
+                mesa.defineProximo();
 
                 mesa.salvar(mesaID);
 
@@ -214,8 +220,10 @@ public class MesaJogoActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Escolheu AMARELO", Toast.LENGTH_SHORT).show();
                 carta.setCor(Color.YELLOW);
+                carta.setImagem(R.drawable.coresy);
                 mesa.getJogadores().get(posi).getHand().remove(position);
                 mesa.setDescarte(carta);
+                mesa.defineProximo();
 
                 mesa.salvar(mesaID);
 

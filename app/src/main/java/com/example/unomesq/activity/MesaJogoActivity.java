@@ -85,9 +85,13 @@ public class MesaJogoActivity extends AppCompatActivity {
                             if (result == 0) {
                                 mesa.getJogadores().get(posi).getHand().remove(position);
                                 mesa.setDescarte(carta);
+                                ivPassar.setVisibility(View.INVISIBLE);
+                                comprou = false;
 
                                 mesa.salvar(mesaID);
                             } else if (result == 1){
+                                ivPassar.setVisibility(View.INVISIBLE);
+                                comprou = false;
                                 escolherCores(carta, position);
                             } else {
                                 Toast.makeText(getApplicationContext(),

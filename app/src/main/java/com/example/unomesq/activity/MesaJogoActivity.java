@@ -39,12 +39,14 @@ public class MesaJogoActivity extends AppCompatActivity {
     private TextView tvNomePlayer3;
     private ImageView ivDescarte;
     private ImageView ivBaralho;
+    private ImageView ivPassar;
 
     private Jogos jogos;
     private Mesa mesa;
     private int mesaID = -1;
     private int posi;
     private int posiFrente, posiEsquerda, posiDireita;
+    private boolean comprou = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class MesaJogoActivity extends AppCompatActivity {
 
         ivBaralho = findViewById(R.id.iv_baralho);
         ivDescarte = findViewById(R.id.iv_carta_descarte);
+        ivPassar = findViewById(R.id.iv_passar);
 
         defineMesa();
 
@@ -284,6 +287,10 @@ public class MesaJogoActivity extends AppCompatActivity {
                 (AppCompatResources.getDrawable
                         (getApplicationContext(), mesa.getDescarte().getImagem()));
 
+        if (!comprou) {
+            ivPassar.setVisibility(View.INVISIBLE);
+        }
+
     }
 
     private void identificaPlayer(){
@@ -324,6 +331,16 @@ public class MesaJogoActivity extends AppCompatActivity {
         //Senão passa a vez
         mesa.comprarCarta(mesa.getJogadores().get(posi));
         mesa.salvar(mesaID);
+        ivPassar.setVisibility(View.VISIBLE);
+        comprou = true;
+
     }
 
+    public void passarVez(View view) {
+        mesa.defineProximo();
+        mesa.salvar(mesaID);
+        ivPassar.setVisibility(View.INVISIBLE);
+        comprou = false;
+
+    }
 }

@@ -129,7 +129,7 @@ public class Mesa {
         return -1;
     }
 
-    private void defineProximo(){
+    public void defineProximo(){
         if (this.sentido) {
             if (this.minhaVez < this.jogadores.size() - 1) {
                 this.minhaVez = this.minhaVez + 1;
@@ -145,7 +145,6 @@ public class Mesa {
         }
 
     }
-
 
     public void comprarCarta(Jogador j){
         Random r = new Random();

@@ -110,6 +110,7 @@ public class Mesa {
 
         //Carta Curinga de Cores
         if(jogada.getNumero() == 13){
+            defineProximo();
             return 1;
         }
 

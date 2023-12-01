@@ -174,7 +174,6 @@ public class MesaJogoActivity extends AppCompatActivity {
                 carta.setImagem(R.drawable.coresr);
                 mesa.getJogadores().get(posi).getHand().remove(position);
                 mesa.setDescarte(carta);
-                mesa.defineProximo();
 
                 mesa.salvar(mesaID);
 
@@ -189,7 +188,6 @@ public class MesaJogoActivity extends AppCompatActivity {
                 carta.setImagem(R.drawable.coresb);
                 mesa.getJogadores().get(posi).getHand().remove(position);
                 mesa.setDescarte(carta);
-                mesa.defineProximo();
 
                 mesa.salvar(mesaID);
 
@@ -204,7 +202,6 @@ public class MesaJogoActivity extends AppCompatActivity {
                 carta.setImagem(R.drawable.coresg);
                 mesa.getJogadores().get(posi).getHand().remove(position);
                 mesa.setDescarte(carta);
-                mesa.defineProximo();
 
                 mesa.salvar(mesaID);
 
@@ -219,7 +216,6 @@ public class MesaJogoActivity extends AppCompatActivity {
                 carta.setImagem(R.drawable.coresy);
                 mesa.getJogadores().get(posi).getHand().remove(position);
                 mesa.setDescarte(carta);
-                mesa.defineProximo();
 
                 mesa.salvar(mesaID);
 

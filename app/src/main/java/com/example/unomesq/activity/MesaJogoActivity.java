@@ -170,8 +170,6 @@ public class MesaJogoActivity extends AppCompatActivity {
         bRed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),
-                        "Escolheu VERMELHO", Toast.LENGTH_SHORT).show();
                 carta.setCor(Color.RED);
                 carta.setImagem(R.drawable.coresr);
                 mesa.getJogadores().get(posi).getHand().remove(position);
@@ -187,8 +185,6 @@ public class MesaJogoActivity extends AppCompatActivity {
         bBlue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),
-                        "Escolheu AZUL", Toast.LENGTH_SHORT).show();
                 carta.setCor(Color.BLUE);
                 carta.setImagem(R.drawable.coresb);
                 mesa.getJogadores().get(posi).getHand().remove(position);
@@ -204,8 +200,6 @@ public class MesaJogoActivity extends AppCompatActivity {
         bGreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),
-                        "Escolheu VERDE", Toast.LENGTH_SHORT).show();
                 carta.setCor(Color.GREEN);
                 carta.setImagem(R.drawable.coresg);
                 mesa.getJogadores().get(posi).getHand().remove(position);
@@ -221,8 +215,6 @@ public class MesaJogoActivity extends AppCompatActivity {
         bYellow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),
-                        "Escolheu AMARELO", Toast.LENGTH_SHORT).show();
                 carta.setCor(Color.YELLOW);
                 carta.setImagem(R.drawable.coresy);
                 mesa.getJogadores().get(posi).getHand().remove(position);
@@ -276,7 +268,9 @@ public class MesaJogoActivity extends AppCompatActivity {
         if (mesa.getMinhaVez() == posi) {
             rvCartasMao.setClickable(true);
             rvCartasMao.setAlpha(1f);
-            ivBaralho.setClickable(true);
+            if (!comprou) {
+                ivBaralho.setClickable(true);
+            }
         }
 
         inicializaPosicoes();

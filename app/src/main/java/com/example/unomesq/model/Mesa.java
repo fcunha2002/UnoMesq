@@ -108,23 +108,39 @@ public class Mesa {
 
     public int validarJogada(Carta jogada){
 
+        //Carta Curinga de Cores
         if(jogada.getNumero() == 13){
+            return 1;
+        }
+
+        //Carta +4
+        if(jogada.getNumero() == 14){
+            defineProximo();
+            //Falta verificar se o próximo tem outra +4 na mão
+            comprarCarta(jogadores.get(minhaVez));
+            comprarCarta(jogadores.get(minhaVez));
+            comprarCarta(jogadores.get(minhaVez));
+            comprarCarta(jogadores.get(minhaVez));
+            defineProximo();
             return 1;
         }
 
         if ((this.descarte.getCor() == jogada.getCor()) ||
         (this.descarte.getNumero() == jogada.getNumero())){
+            //Carta Reverter
             if (jogada.getNumero() == 11){
                 this.sentido = !this.sentido;
             }
-            //Implementação do bloqueio
+            //Carta Bloqueio
             if (jogada.getNumero() == 10){
                 defineProximo();
             }
             defineProximo();
+            //Carta +2
             if (jogada.getNumero() == 12) {
                 comprarCarta(jogadores.get(minhaVez));
                 comprarCarta(jogadores.get(minhaVez));
+                defineProximo();
             }
             return 0;
         }

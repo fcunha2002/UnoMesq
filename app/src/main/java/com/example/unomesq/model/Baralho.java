@@ -241,14 +241,14 @@ public class Baralho {
         carta = new Carta(Color.BLACK, 13, 500, R.drawable.cores);
         cartas.add(carta);
 
-//        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
-//        cartas.add(carta);
-//        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
-//        cartas.add(carta);
-//        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
-//        cartas.add(carta);
-//        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
-//        cartas.add(carta);
+        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
+        cartas.add(carta);
+        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
+        cartas.add(carta);
+        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
+        cartas.add(carta);
+        carta = new Carta(Color.BLACK, 14, 600, R.drawable.coressoma4);
+        cartas.add(carta);
 
     }
 
